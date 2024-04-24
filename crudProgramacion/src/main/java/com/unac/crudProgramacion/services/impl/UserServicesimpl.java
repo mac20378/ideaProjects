@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserServicimpl implements UserService {
+public class UserServicesimpl implements UserService {
 
     @Autowired
     private UserDAO userDAO;
@@ -40,5 +40,23 @@ public class UserServicimpl implements UserService {
         List<UserEntity> userEntities=userDAO.findAll();
         return userEntities.Stream()
                 .map();
+    }
+
+    @Override
+    public UserDTO getUserById(Integer id) {
+        return UserDTO.builder()
+                .iduser(userEntity.get().getidUser())
+                .name();
+    }
+
+    @Override
+    public void deleteUser(Integer id) {
+        userDAO.deleteById(id);
+
+    }
+
+    @Override
+    public UserDTO getUserByName(String name) {
+        return null;
     }
 }
